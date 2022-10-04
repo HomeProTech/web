@@ -31,8 +31,8 @@ odoo.define('web_timeline.TimelineView', function (require) {
     var TimelineView = AbstractView.extend({
         display_name: _lt('Timeline'),
         icon: 'fa-clock-o',
-        jsLibs: ['/web_timeline/static/lib/vis/vis-timeline-graph2d.min.js'],
-        cssLibs: ['/web_timeline/static/lib/vis/vis-timeline-graph2d.min.css'],
+        // jsLibs: ['/web_timeline/static/lib/vis/vis-timeline-graph2d.min.js'],
+        // cssLibs: ['/web_timeline/static/lib/vis/vis-timeline-graph2d.min.css'],
         config: {
             Model: TimelineModel,
             Controller: TimelineController,
@@ -73,9 +73,9 @@ odoo.define('web_timeline.TimelineView', function (require) {
                 }
             });
 
-            var archFieldNames = _.map(_.filter(this.arch.children, function(item) {
+            var archFieldNames = _.map(_.filter(this.arch.children, function (item) {
                 return item.tag === 'field';
-            }), function(item) {
+            }), function (item) {
                 return item.attrs.name;
             });
             fieldNames = _.union(
@@ -84,7 +84,7 @@ odoo.define('web_timeline.TimelineView', function (require) {
             );
 
             this.parse_colors();
-            for (var i=0; i<this.colors.length; i++) {
+            for (var i = 0; i < this.colors.length; i++) {
                 fieldNames.push(this.colors[i].field);
             }
 
@@ -160,7 +160,7 @@ odoo.define('web_timeline.TimelineView', function (require) {
                 return +1;
             }
 
-            return  grp1.content.localeCompare(grp2.content);
+            return grp1.content.localeCompare(grp2.content);
 
         },
 
